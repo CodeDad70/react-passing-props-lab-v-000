@@ -22,7 +22,7 @@ const fruitTypesMap = {
 
 let frujis = _.pickBy(emoji.lib, x => {
   return x.keywords.includes('fruit') &&
-         !x.keywords.includes('vegetable');
+    !x.keywords.includes('vegetable');
 });
 
 frujis = _.mapValues(frujis, (fruji, name) => {
@@ -34,13 +34,13 @@ const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 const getRandomFruit = () => {
   const fruitNames = Object.keys(frujis);
   const randomFruit = fruitNames[getRandomInt(0, fruitNames.length)];
   return Object.assign({}, { name: randomFruit }, frujis[randomFruit]);
-}
+};
 
 const getFruitTypes = () => {
   return fruitTypes;
@@ -49,10 +49,10 @@ const getFruitTypes = () => {
 const getFruitBasket = () => {
   const size = getRandomInt(700, 1000);
   let basket = [];
-  for (let i=0; i<=size; i++) {
-    basket.push(Object.assign({}, getRandomFruit()))
+  for (let i = 0; i <= size; i++) {
+    basket.push(Object.assign({}, getRandomFruit()));
   }
   return basket;
-}
+};
 
 export { getFruitBasket, getFruitTypes };
